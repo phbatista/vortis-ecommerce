@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Vortis Mobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles_register.css">
+    <script src="js/cep.js"></script>
+</head>
+<body>
+<header>
+    <h1 id="brand-name">Vortis Mobile</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="#">Entry</a></li>
+            <li><a href="#">Core</a></li>
+            <li><a href="#">Elite</a></li>
+            <li><a href="#">Qual o melhor aparelho para mim?</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="carrinho.html">Meu Carrinho</a><li>
+            <li><a href="#">Minha Conta</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="login-container">
+        <div class="form-container">
+            <h2>Cadastro</h2>
+            <form id="registration-form">
+                <div class="form-row">
+                    <!-- Informações Pessoais -->
+                    <div class="form-section">
+                        <h3>Informações Pessoais</h3>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required pattern="\d{11}" title="CPF inválido">
+
+                        <label for="celular">Celular:</label>
+                        <input type="tel" id="celular" name="celular" required pattern="\d{11}" title="Telefone inválido">
+
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+
+                        <label for="confirmar_senha">Confirmar Senha:</label>
+                        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+
+                        <span id="senha-error" class="error-message"></span>
+                    </div>
+
+                    <!-- Endereço -->
+                    <div class="form-section">
+                        <h3>Endereço</h3>
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep" required pattern="\d{8}" title="CEP inválido" onblur="pesquisacep(this.value);">
+
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" name="rua" required>
+
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" name="numero" required>
+
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" required>
+
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" required>
+
+                        <label for="uf">Estado:</label>
+                        <select id="uf" name="uf" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+
+                    <!-- Pagamento -->
+                    <div class="form-section">
+                        <h3>Pagamento</h3>
+                        <label for="bandeira">Bandeira do Cartão:</label>
+                        <select id="bandeira" name="bandeira" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="visa">Visa</option>
+                            <option value="elo">Elo</option>
+                        </select>
+
+                        <label for="cartao">Número do Cartão:</label>
+                        <input type="text" id="cartao" name="cartao" required pattern="\d{4} \d{4} \d{4} \d{4}" title="Digite o número do cartão no formato XXXX XXXX XXXX XXXX">
+
+                        <label for="validade">Validade:</label>
+                        <input type="text" id="validade" name="validade" required pattern="\d{2}/\d{2}" title="Digite a validade no formato MM/AA">
+
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" required pattern="\d{3}" title="Digite o CVV com 3 dígitos">
+
+                        <label for="nome_cartao">Nome no Cartão:</label>
+                        <input type="text" id="nome_cartao" name="nome_cartao" required>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Cadastrar</button>
+                </div>
+
+                <p>Já possui uma conta? <a href="login.html">Faça login aqui.</a></p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script src="js/register.js"></script>
+
+</body>
+</html>
